@@ -33,8 +33,34 @@
     
   }
 
+  if (isset($_POST['editDataGunung'])) {
 
+    //! Variabel 
+    $id           = $_POST['id'];
+    $nama_gunung  = $_POST['nama_gunung'];
+    $mdpl         = $_POST['mdpl'];
+    $alamat       = $_POST['alamat'];
+    $harga_satuan = $_POST['harga_satuan'];
+    $satuan       = $_POST['satuan'];
+    $htm          = $_POST['htm'];
 
+    //! Upadate Data
+    $updateDataGunung   = "UPDATE data_gunung SET nama_gunung = '$nama_gunung', mdpl ='$mdpl', alamat_gunung = '$alamat', unit_htm = '$harga_satuan', satuan_htm = '$satuan', htm = '$htm' WHERE id_gunung = '$id' ";
+    $querUpdateGunung   = mysqli_query($host, $updateDataGunung); 
 
-
+    if ($querUpdateGunung) {
+      echo "
+        <script>
+          window.location.href='../../frontend/data_gunung/index.php?page=datagunung';
+        </script>
+      ";
+    } else {
+      echo "
+        <script>
+          alert('Operasi Gagal');
+          window.location.href='../../frontend/data_gunung/edit.php?id=$id&page=datagunung';
+        </script>
+      ";
+    }
+  }
 ?>
