@@ -46,7 +46,7 @@
           <a href="edit.php?id=<?= $data['id_gunung']?>&page=datagunung" class="tmbl tmbl-kuning">
             Edit
           </a>
-          <a href="" class="tmbl tmbl-merah">
+          <a href="../../backend/data_gunung/hapus.php?id=<?= $data['id_gunung']?>" class="tmbl tmbl-merah">
             Hapus
           </a>
         </td>
