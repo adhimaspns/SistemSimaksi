@@ -32,7 +32,8 @@
       <?php
         $status         = "Masih Mendaki";
         $no             = 1;
-        $selectLaporan  = "SELECT * FROM laporan INNER JOIN data_gunung ON laporan.gunung_id = data_gunung.id_gunung WHERE lprn_status_pendakian = '$status' ";
+        $tgl            = "0000-00-00 00:00:00";
+        $selectLaporan  = "SELECT * FROM laporan INNER JOIN data_gunung ON laporan.gunung_id = data_gunung.id_gunung WHERE lprn_status_pendakian = '$status' AND lprn_tgl_keluar != '$tgl'  ";
         $queryLaporan   = mysqli_query($host, $selectLaporan);
         while ($data  = mysqli_fetch_assoc($queryLaporan) ) {
 
