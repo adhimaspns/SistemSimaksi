@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Mar 2021 pada 20.18
+-- Waktu pembuatan: 27 Mar 2021 pada 20.21
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.3
 
@@ -142,13 +142,6 @@ CREATE TABLE `temp` (
   `status_anggota` varchar(10) NOT NULL,
   `htm_anggota` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `temp`
---
-
-INSERT INTO `temp` (`id_temp`, `nomor_simaksi`, `gunung_id`, `nama_lengkap`, `jenis_kelamin`, `alamat_lengkap`, `no_telp`, `status_anggota`, `htm_anggota`) VALUES
-(10, '202103270005', '1', 'Edi Purwanto', 'Laki-Laki', 'Desa.Dlanggu Dusun.Pohkecik', '085785173514', 'Solo', '10000');
 
 -- --------------------------------------------------------
 
