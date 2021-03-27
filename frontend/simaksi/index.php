@@ -57,7 +57,7 @@
       <tr>
         <th>No</th>
         <th>Nomor Simaksi</th>
-        <th>Ketua Kelompok</th>
+        <th>Yang Bertanda Tangan</th>
         <th>Tanggal Masuk</th>
         <th>Tanggal Keluar</th>
         <th>Banyaknya Orang</th>
