@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Mar 2021 pada 18.05
+-- Waktu pembuatan: 27 Mar 2021 pada 20.18
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.3
 
@@ -43,7 +43,8 @@ CREATE TABLE `data_gunung` (
 --
 
 INSERT INTO `data_gunung` (`id_gunung`, `nama_gunung`, `mdpl`, `alamat_gunung`, `unit_htm`, `satuan_htm`, `htm`) VALUES
-(1, 'Gunung Welirang ', '3339 Meter', 'Desa. Pacet Kab. Mojokerto, Prov. Jawa Timur', 1, 'Perorangan', 10000);
+(1, 'Gunung Welirang ', '3339 Meter', 'Desa. Pacet Kab. Mojokerto, Prov. Jawa Timur', 1, 'Perorangan', 10000),
+(2, 'Gunung Lawu', '4000 Mdpl', 'Desa.Lawu Dusun.Kediri', 1, 'Perorangan', 20000);
 
 -- --------------------------------------------------------
 
@@ -68,12 +69,9 @@ CREATE TABLE `detail_simaksi` (
 --
 
 INSERT INTO `detail_simaksi` (`id_detail_simaksi`, `nomor_simaksi`, `gunung_id`, `nama_lengkap`, `jenis_kelamin`, `alamat_lengkap`, `no_telp`, `status_anggota`, `htm_detail_anggota`) VALUES
-(2, '202103270001', '1', 'Adhimas Putra Nugraha Sugianto', 'Laki-Laki', 'Desa.Mlaten Dusun.Mlaten Kec.Puri Kab.Mojokerto', '081615227898', 'Ketua', '10000'),
-(3, '202103270001', '1', 'Tesing 2', 'Perempuan', 'alamat tesing', '0123123', 'Anggota', '10000'),
-(4, '202103270001', '1', 'Testing 3', 'Laki-Laki', 'alamat testing 3', '23123123123', 'Anggota', '10000'),
-(5, '202103270002', '1', 'Adhimas Putra Nugraha Sugianto', 'Laki-Laki', 'Desa.Mlaten Dusun.Mlaten Kec.Puri Kab.Mojokerto', '081615227898', 'Ketua', '10000'),
-(6, '202103270002', '1', 'Tester 5', 'Laki-Laki', 'alamat tester', '809808', 'Anggota', '10000'),
-(7, '202103270003', '1', 'Tester 1', 'Laki-Laki', 'alamat tester', '3123123121', 'Ketua', '10000');
+(11, '202103270001', '2', 'Adhimas Putra Nugraha Sugianto', 'Laki-Laki', 'Desa.Mlaten Dusun.Mlaten', '081615227898', 'Ketua', '20000'),
+(12, '202103270001', '2', 'Edi Purwanto', 'Laki-Laki', 'Desa.Dlanggu Dusun.Pohkecik', '08970898910', 'Anggota', '20000'),
+(13, '202103270001', '2', 'Bondan Putra', 'Laki-Laki', 'Desa.Gondang Dusun.Sawahan', '085850123321', 'Anggota', '20000');
 
 -- --------------------------------------------------------
 
@@ -100,9 +98,7 @@ CREATE TABLE `laporan` (
 --
 
 INSERT INTO `laporan` (`id_laporan`, `tgl_simaksi`, `lprn_tgl_keluar`, `nomor_simaksi`, `gunung_id`, `laporan_tgl_masuk`, `laporan_tgl_keluar`, `laporan_jml_hari`, `jumlah_pendaki`, `total_biaya`, `lprn_status_pendakian`) VALUES
-(1, '2021-03-27 15:47:01', '2021-03-31 17:33:31', '202103270001', '1', '2021-03-27', '2021-03-31', '4 Hari', 3, '30000', 'Masih Mendaki'),
-(4, '2021-03-27 17:30:37', '2021-03-27 17:34:21', '202103270002', '1', '2021-03-27', '2021-04-01', '5 Hari', 2, '20000', 'Sudah Turun'),
-(6, '2021-03-27 17:35:32', '2021-03-27 17:36:05', '202103270003', '1', '2021-03-27', '2021-03-27', '0 Hari', 1, '10000', 'Sudah Turun');
+(8, '2021-03-27 20:06:28', '0000-00-00 00:00:00', '202103270001', '2', '2021-03-27', '2021-03-29', '2 Hari', 3, '60000', 'Masih Mendaki');
 
 -- --------------------------------------------------------
 
@@ -127,9 +123,7 @@ CREATE TABLE `simaksi` (
 --
 
 INSERT INTO `simaksi` (`id_simaksi`, `no_urut`, `tgl_simaksi`, `gunung_id`, `satuan_pendakian`, `tgl_masuk`, `tgl_keluar`, `jumlah_hari`, `status_pendakian`) VALUES
-(11, '202103270001', '2021-03-27', '1', 'Kelompok', '2021-03-27', '2021-03-31', '4 Hari', 'Sudah Turun'),
-(12, '202103270002', '2021-03-27', '1', 'Kelompok', '2021-03-27', '2021-04-01', '5 Hari', 'Sudah Turun'),
-(13, '202103270003', '2021-03-27', '1', 'Solo', '2021-03-27', '2021-03-27', '0 Hari', 'Sudah Turun');
+(16, '202103270001', '2021-03-27', '2', 'Kelompok', '2021-03-27', '2021-03-29', '2 Hari', 'Masih Mendaki');
 
 -- --------------------------------------------------------
 
@@ -148,6 +142,33 @@ CREATE TABLE `temp` (
   `status_anggota` varchar(10) NOT NULL,
   `htm_anggota` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `temp`
+--
+
+INSERT INTO `temp` (`id_temp`, `nomor_simaksi`, `gunung_id`, `nama_lengkap`, `jenis_kelamin`, `alamat_lengkap`, `no_telp`, `status_anggota`, `htm_anggota`) VALUES
+(10, '202103270005', '1', 'Edi Purwanto', 'Laki-Laki', 'Desa.Dlanggu Dusun.Pohkecik', '085785173514', 'Solo', '10000');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
+--
+
+CREATE TABLE `user` (
+  `id_user` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `level` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id_user`, `username`, `password`, `level`) VALUES
+(1, 'putri_nova', 'putrinova123', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -185,6 +206,12 @@ ALTER TABLE `temp`
   ADD PRIMARY KEY (`id_temp`);
 
 --
+-- Indeks untuk tabel `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -192,31 +219,37 @@ ALTER TABLE `temp`
 -- AUTO_INCREMENT untuk tabel `data_gunung`
 --
 ALTER TABLE `data_gunung`
-  MODIFY `id_gunung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_gunung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `detail_simaksi`
 --
 ALTER TABLE `detail_simaksi`
-  MODIFY `id_detail_simaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_detail_simaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `laporan`
 --
 ALTER TABLE `laporan`
-  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `simaksi`
 --
 ALTER TABLE `simaksi`
-  MODIFY `id_simaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_simaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `temp`
 --
 ALTER TABLE `temp`
-  MODIFY `id_temp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_temp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT untuk tabel `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
