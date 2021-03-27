@@ -80,6 +80,7 @@
       <select name="status_anggota" class="form" required>
         <option value="Anggota">Anggota</option>
         <option value="Ketua">Ketua</option>
+        <option value="Ketua">Solo</option>
       </select>
 
       <input type="submit" class="button-form-full background-hijau" name="simpan_data_anggota" value="Simpan">
